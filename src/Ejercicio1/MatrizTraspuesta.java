@@ -1,10 +1,14 @@
 package Ejercicio1;
 
 public class MatrizTraspuesta extends Matriz{
-    public MatrizTraspuesta(int matriz[][]) {
-        super(matriz);
-    }
+    //La clase MatrizTraspuesta hereda de la clase Matriz
 
+    //Constructor:
+    public MatrizTraspuesta(int matriz[][])
+    {
+        super(matriz); // Con el super se llama al constructor de la clase padre
+    }
+    //Métodos:
     public void trasponer() {
         int filas = matriz.length;
         int columnas = matriz[0].length;
@@ -14,6 +18,6 @@ public class MatrizTraspuesta extends Matriz{
                 traspuesta[j][i] = matriz[i][j];
             }
         }
-        matriz = traspuesta;              }
+        matriz = traspuesta;              } //Imprimimos la matriz traspuesta
 
 }
