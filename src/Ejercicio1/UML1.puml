@@ -1,11 +1,18 @@
 @startuml
-'https://plantuml.com/sequence-diagram
 
-autonumber
+class Calculadora {
+}
 
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
+class Matriz {
+    -matriz[][]
+    +Matriz(int[][])
+}
 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+class MatrizTraspuesta {
+    +trasponer(): void
+}
+
+Calculadora ..> Matriz
+Matriz <|-- MatrizTraspuesta
+
 @enduml
