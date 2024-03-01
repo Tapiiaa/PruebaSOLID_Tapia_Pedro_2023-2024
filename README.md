@@ -51,6 +51,7 @@ La clase OrderManager se encarga de la gestión de los pedidos, incluyendo la cr
 La clase PaymentProcessor está enfocada hacia el pago del cliente en el pedido
 Finalmente, la clase DataBaseManager es la encargada de manejar la conexión con la base de datos y realizar operaciones CRUD, donde se imprime un menú para que el usuario elija la operación que desea realizar. 
 
+Las clases PizzaJamonYork, PizzaMargarita y PizzaCarbonara son clases que heredan de la clase Pizza.
 #### Se ha implementado un Diagrama de clases.
 
 

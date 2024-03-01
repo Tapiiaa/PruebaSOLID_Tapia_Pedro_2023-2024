@@ -1,41 +1,92 @@
 @startuml
 
+class Pizza {
+    - static nombre: String
+    - static masa: String
+    - static toppings: List<String>
+    + Pizza(masa: String, nombre: String)
+    + getNombre(): String
+    + setNombre(nombre: String): void
+    + getMasa(): String
+    + setMasa(masa: String): void
+    + getToppings(): List<String>
+    + setToppings(toppings: List<String>): void
+    + addTopping(topping: String): void
+    + removeTopping(topping: String): void
+    + static printToppings(): void
+    + static pizzasTotalesDelPedido(): String
+}
 
-class Authenticator {
-  -nombre: String
-  -contraseña: String
-  +Authenticator(nombre: String, contraseña: String)
-  +autenticar(nombre: String, contraseña: String): boolean
+class PizzaJamonYQueso {
+    + PizzaJamonYQueso(masa: String, nombre: String)
+    + addTopping(topping: String): void
+    + printPizza(): void
+}
+
+class PizzaCarbonara {
+    + PizzaCarbonara(masa: String, nombre: String)
+    + addTopping(topping: String): void
+    + printPizza(): void
+}
+
+class PizzaMargarita {
+    + PizzaMargarita(masa: String, nombre: String)
+    + addTopping(topping: String): void
+    + printPizza(): void
+}
+
+class OrderManager {
+    - nombre: String
+    - apellido: String
+    - numeroTelefono: int
+    - direccion: String
+    - id: int
+    - pizzas: ArrayList<Pizza>
+    + OrderManager(id: int, nombre: String, apellido: String, numeroTelefono: int, direccion: String)
+    + getNombre(): String
+    + getApellido(): String
+    + getNumeroTelefono(): int
+    + getDireccion(): String
+    + getid(): int
+    + setNombre(nombre: String): void
+    + setApellido(apellido: String): void
+    + setNumeroTelefono(numeroTelefono: int): void
+    + setDireccion(direccion: String): void
+    + setid(id: int): void
+    + crearPedido(nombre: String, apellido: String, numeroTelefono: int, direccion: String): String
+    + actualizarPedido(id: int, nombre: String, apellido: String, numeroTelefono: int, direccion: String): void
+    + static eliminarPedido(id: int): void
+    + addPizza(pizza: Pizza): void
+    + getPizzas(): ArrayList<Pizza>
 }
 
 class DataBaseManager {
-  -pedidos: List<OrderManager>
-  +main(args: String[]): void
+    {static} pedidos: List<OrderManager>
+    + static main(args: String[]): void
 }
 
-DataBaseManager ..> Authenticator : uses
-DataBaseManager --> "*" OrderManager : manages
-DataBaseManager --> PaymentProcessor : uses
-
-class OrderManager {
-  -nombre: String
-  -apellido: String
-  -numeroTelefono: int
-  -direccion: String
-  -id: int
-  +get/set methods
-  +crearPedido(nombre: String, apellido: String, numeroTelefono: int, direccion: String): String
-  +actualizarPedido(id: int, nombre: String, apellido: String, numeroTelefono: int, direccion: String): void
-  +eliminarPedido(id: int): void
+class Authenticator {
+    - nombre: String
+    - contraseña: String
+    + Authenticator(nombre: String, contraseña: String)
+    + autenticar(nombre: String, contraseña: String): boolean
 }
 
 class PaymentProcessor {
-  -id: int
-  -nombre: String
-  -apellido: String
-  -concepto: String
-  -importe: int
-  +PaymentProcessor(id: int, nombre: String, apellido: String, concepto: String, importe: int)
+    - id: int
+    - nombre: String
+    - apellido: String
+    - concepto: String
+    - importe: int
+    + PaymentProcessor(id: int, nombre: String, apellido: String, concepto: String, importe: int)
 }
 
+Pizza <|-- PizzaJamonYQueso
+Pizza <|-- PizzaCarbonara
+Pizza <|-- PizzaMargarita
+DataBaseManager --> "1" Authenticator
+DataBaseManager --> "*" OrderManager
+OrderManager "1" --> "*" Pizza
+
 @enduml
+
