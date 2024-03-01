@@ -15,7 +15,7 @@ class DataBaseManager {
 
 DataBaseManager ..> Authenticator : uses
 DataBaseManager --> "*" OrderManager : manages
-DataBaseManager ..> PaymentProcessor : uses
+DataBaseManager --> PaymentProcessor : uses
 
 class OrderManager {
   -nombre: String
