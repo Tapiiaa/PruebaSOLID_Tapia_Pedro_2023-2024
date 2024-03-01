@@ -10,6 +10,8 @@ public class OrderManager {
     private int numeroTelefono;
     private String direccion;
     private int id;
+    private ArrayList<Pizza> pizzas;
+
 
     public OrderManager(int id,String nombre, String apellido, int numeroTelefono, String direccion) {
         this.nombre = nombre;
@@ -17,6 +19,7 @@ public class OrderManager {
         this.numeroTelefono = numeroTelefono;
         this.direccion = direccion;
         this.id = id;
+        this.pizzas= new ArrayList<>();
     }
     public String getNombre() {
         return nombre;
@@ -83,6 +86,12 @@ public class OrderManager {
         }
 
 
+    }
+    public void addPizza(Pizza pizza){
+        this.pizzas.add(pizza);
+    }
+    public ArrayList<Pizza> getPizzas(){
+        return pizzas;
     }
 
 }
