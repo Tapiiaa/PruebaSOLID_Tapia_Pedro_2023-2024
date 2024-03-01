@@ -1,5 +1,5 @@
 Prueba principios SOLID Pedro Alonso Tapia Lobo TÉCNICAS DE PROGRAMACIÓN
-### Link a mi repositorio de GitHub:
+### Link a mi repositorio de GitHub: https://github.com/Tapiiaa/PruebaSOLID_Tapia_Pedro_2023-2024.git
 ### Esta práctica busca la capacidad de aplicación de los principios SOLID sobre un proyecto.
 
 #### Este proyecto consta de dos ejercicios:
