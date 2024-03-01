@@ -1,0 +1,41 @@
+@startuml
+
+
+class Authenticator {
+  -nombre: String
+  -contraseña: String
+  +Authenticator(nombre: String, contraseña: String)
+  +autenticar(nombre: String, contraseña: String): boolean
+}
+
+class DataBaseManager {
+  -pedidos: List<OrderManager>
+  +main(args: String[]): void
+}
+
+DataBaseManager ..> Authenticator : uses
+DataBaseManager --> "*" OrderManager : manages
+DataBaseManager ..> PaymentProcessor : uses
+
+class OrderManager {
+  -nombre: String
+  -apellido: String
+  -numeroTelefono: int
+  -direccion: String
+  -id: int
+  +get/set methods
+  +crearPedido(nombre: String, apellido: String, numeroTelefono: int, direccion: String): String
+  +actualizarPedido(id: int, nombre: String, apellido: String, numeroTelefono: int, direccion: String): void
+  +eliminarPedido(id: int): void
+}
+
+class PaymentProcessor {
+  -id: int
+  -nombre: String
+  -apellido: String
+  -concepto: String
+  -importe: int
+  +PaymentProcessor(id: int, nombre: String, apellido: String, concepto: String, importe: int)
+}
+
+@enduml
